@@ -28,7 +28,7 @@ export function searchText(event) {
     },
   };
 
-  const url = `https://pixabay.com/api? ${searchParams}`;
+  const url = `https://pixabay.com/api?${searchParams}`;
   console.log(url);
 
   fetch(`${url}`, options)
