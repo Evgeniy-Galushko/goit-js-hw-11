@@ -36,7 +36,7 @@ export function searchText(event) {
       if (!response.ok) {
         throw new Error(response.status);
       }
-      return response.blob(); //.json()
+      return response.json(); //
     })
     .then(images => {
       // const img = images.map(image => image);
