@@ -6,11 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>js-hw-11.git</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+      
   </head>
   <body>
     <main>
-      
+      <form class="search">
+        <input type="text" name="text" placeholder="Search images..." />
+        <button type="submit" data-start>Search</button>
+      </form>
     </main>
-    <script type="module" src="main.js"></script>
+    <script type="module" src="./main.js"></script>
+    <script type="module" src="./js/pixabay-api.js"></script>
+    <script type="module" src="./js/render-functions.js"></script>
   </body>
 </html>

@@ -32,3 +32,59 @@ img {
   max-width: 100%;
   height: auto;
 }
+body{
+  max-width: 1440px;
+}
+
+.search{
+margin-top: 36px;
+/* margin-left: 534px; */
+}
+
+.search input{
+  width: 272px;
+  height: 40px;
+  border: 1.5px solid #808080;
+  border-radius: 4px;
+  outline: 0 !important;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #808080;
+}
+
+.search input:hover,
+.search input:focus{
+  border-color: #000;
+  outline: none;
+  color: #000;
+}
+
+.search input:active{
+  border-color: #4E75FF;
+}
+
+.search input:active{
+  color: #000;
+}
+
+.search button{
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
+  height: 44px;
+  background-color: #4e75ff;
+  border: none;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #fff;
+}
+
+.search button:hover{
+  background-color: #6c8cff;
+}
