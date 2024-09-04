@@ -16,32 +16,32 @@ export function searchText(event) {
   });
   console.log(searchParams.toString());
 
-  const options = {
-    method: 'GET',
-    Host: 'pixabay.com',
-    Origin: 'localhost:5173',
+  // const options = {
+  //   method: 'GET',
+  //   Host: 'pixabay.com',
+  //   Origin: 'localhost:5173',
 
-    headers: {
-      // 'Access-Control-Allow-Origin': 'http://localhost:5173/',
-      'Content-Type': 'photo',
-      Host: 'localhost:5173',
-    },
-  };
+  //   headers: {
+  //     // 'Access-Control-Allow-Origin': 'http://localhost:5173/',
+  //     'Content-Type': 'photo',
+  //     Host: 'localhost:5173',
+  //   },
+  // };
 
   const url = `https://pixabay.com/api?${searchParams}`;
   console.log(url);
 
-  fetch(`${url}`, options)
+  fetch(`${url}`)
     .then(response => {
       if (!response.ok) {
         throw new Error(response.status);
       }
-      return response.json(); //
+      return response.json();
     })
     .then(images => {
       // const img = images.map(image => image);
       // console.log(img);
-      console.log(images);
+      // console.log(images);
     })
     .catch(error => console.log(error));
   forms.reset();
