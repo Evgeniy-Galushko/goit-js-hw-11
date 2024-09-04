@@ -8,7 +8,7 @@ export function searchText(event) {
   console.log(textSearch);
 
   const searchParams = new URLSearchParams({
-    keys: '45780077-211740ab05b8c84b50ffae6ce',
+    key: '45780077-211740ab05b8c84b50ffae6ce',
     p: `${textSearch}`,
     image_type: 'photo',
     orientation: 'horizontal',
