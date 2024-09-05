@@ -16,7 +16,7 @@ function searchText(event) {
     per_page: 18,
   });
 
-  const url = `http://pixabay.com/api/?${searchParams}`;
+  const url = `https://pixabay.com/api/?${searchParams}`;
 
   request(url);
 
