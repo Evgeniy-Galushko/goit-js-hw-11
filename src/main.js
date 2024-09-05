@@ -15,6 +15,7 @@ function searchText(event) {
     safesearch: true,
     per_page: 18,
   });
+  console.log(searchParams.toString());
 
   const url = `https://pixabay.com/api/?${searchParams}`;
 
