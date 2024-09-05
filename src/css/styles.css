@@ -34,11 +34,12 @@ img {
 }
 body{
   max-width: 1440px;
+  padding: 36px 156px;
 }
 
 .search{
 margin-top: 36px;
-/* margin-left: 534px; */
+padding-left: 378px;
 }
 
 .search input{
@@ -88,3 +89,110 @@ margin-top: 36px;
 .search button:hover{
   background-color: #6c8cff;
 }
+
+/*============GALLERY=========== */
+
+.gallery{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.gallery .gallery-card{
+  border: 1px solid #808080;
+  width: 360px;
+  height: 200px;
+}
+
+.gallery img{
+  height: 152px;
+  object-fit: cover;
+}
+
+.gallery .gallery-card-signature{
+  display: flex;
+  flex-direction: row;
+  gap: 29px;
+  padding-top: 4px;
+  padding-left: 20px;
+  
+}
+
+.gallery .gallery-card-signature .gallery-card-signature-p{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  text-align: center;
+}
+.gallery .gallery-card-signature .gallery-card-signature-number {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  text-align: center;
+}
+
+/*loading process*/
+.loader {
+  display: none;
+  top:25px;
+  left: 520px; 
+  width: 48px;
+  height: 48px;
+  border: 3px dotted #4e75ff;
+  border-style: solid solid dotted dotted;
+  border-radius: 50%;
+  /* display: inline-block; */
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 2s linear infinite;
+}
+
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px dotted red;
+  border-style: solid solid dotted;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  animation: rotationBack 1s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+.js-non-display{
+display: block;
+}
+/*END loading process*/

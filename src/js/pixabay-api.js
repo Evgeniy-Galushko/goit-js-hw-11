@@ -1,50 +1,33 @@
-const forms = document.querySelector('.search');
+import sorry from '../img/bi_x-octagon.svg';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+const loader = document.querySelector('.loader');
+import gallerys from '../js/render-functions';
 
-export function searchText(event) {
-  event.preventDefault();
-  const input = event.target;
-  const text = input.elements.text.value.trim();
-  const textSearch = text.toLowerCase();
-  console.log(textSearch);
-
-  const searchParams = new URLSearchParams({
-    key: '45780077-211740ab05b8c84b50ffae6ce',
-    p: `${textSearch}`,
-    image_type: 'photo',
-    orientation: 'horizontal',
-    safesearch: true,
-  });
-  console.log(searchParams.toString());
-
-  // const options = {
-  //   method: 'GET',
-  //   Host: 'pixabay.com',
-  //   Origin: 'localhost:5173',
-
-  //   headers: {
-  //     // 'Access-Control-Allow-Origin': 'http://localhost:5173/',
-  //     'Content-Type': 'photo',
-  //     Host: 'localhost:5173',
-  //   },
-  // };
-
-  const url = `https://pixabay.com/api?${searchParams}`;
-  console.log(url);
-
-  fetch(`${url}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      return response.json();
-    })
-    .then(images => {
-      // const img = images.map(image => image);
-      // console.log(img);
-      // console.log(images);
-    })
-    .catch(error => console.log(error));
-  forms.reset();
+export default function request(url) {
+  loader.classList.toggle('js-non-display');
+  setTimeout(() => {
+    fetch(`${url}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+        return response.json();
+      })
+      .then(images => {
+        const imgs = images.hits;
+        if (imgs.length === 0) {
+          iziToast.warning({
+            backgroundColor: '#EF4040',
+            position: 'center',
+            iconUrl: sorry,
+            message:
+              'Sorry, there are no images matching your search query. Please try again!',
+          });
+        }
+        gallerys(imgs);
+      })
+      .catch(error => console.log(error));
+    loader.classList.toggle('js-non-display');
+  }, 1000);
 }
-
-forms.addEventListener('submit', searchText);
