@@ -18,6 +18,7 @@ function searchText(event) {
   console.log(searchParams.toString());
 
   const url = `https://pixabay.com/api/?${searchParams}`;
+  console.log(url);
 
   request(url);
 
