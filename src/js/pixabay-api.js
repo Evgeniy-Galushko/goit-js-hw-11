@@ -1,8 +1,9 @@
 import sorry from '../img/bi_x-octagon.svg';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-const loader = document.querySelector('.loader');
 import gallerys from '../js/render-functions';
+
+const loader = document.querySelector('.loader');
 
 export default function request(url) {
   loader.classList.toggle('js-non-display');

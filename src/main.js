@@ -1,5 +1,6 @@
-const forms = document.querySelector('.search');
 import request from './js/pixabay-api';
+
+const forms = document.querySelector('.search');
 
 function searchText(event) {
   event.preventDefault();
