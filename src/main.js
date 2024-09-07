@@ -1,8 +1,13 @@
 import request from './js/pixabay-api';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
+const loader = document.querySelector('.loader');
 const forms = document.querySelector('.search');
+const gallery = document.querySelector('.gallery');
 
 function searchText(event) {
+  gallery.innerHTML = '';
   event.preventDefault();
   const input = event.target;
   const text = input.elements.text.value.trim();
@@ -19,11 +24,24 @@ function searchText(event) {
   console.log(searchParams.toString());
 
   const url = `https://pixabay.com/api/?${searchParams}`;
-  console.log(url);
+  loader.classList.toggle('js-non-display');
+  setTimeout(() => {
+    request(url);
+    loader.classList.toggle('js-non-display');
+  }, 1000);
 
-  request(url);
-
+  new SimpleLightbox('.gallery a', {
+    captions: true,
+    captionsData: 'alt',
+    captionDelay: 250,
+  });
   forms.reset();
 }
 
 forms.addEventListener('submit', searchText);
+// function deleteLine(event) {
+//   setTimeout(() => {
+//     gallery.remove();
+//   }, 5000);
+// }
+// forms.addEventListener('click', deleteLine);

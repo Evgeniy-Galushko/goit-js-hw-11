@@ -1,10 +1,19 @@
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
-
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+import sorry from '../img/bi_x-octagon.svg';
 const gallery = document.querySelector('.gallery');
 
-export default function gallerys(arry) {
-  const line = arry
+export default function gallerys(imgs) {
+  if (imgs.length === 0) {
+    iziToast.warning({
+      backgroundColor: '#EF4040',
+      position: 'center',
+      iconUrl: sorry,
+      message:
+        'Sorry, there are no images matching your search query. Please try again!',
+    });
+  }
+  const line = imgs
     .map(
       img => `<li class="gallery-card">
         <a class="gallery-link" href=${img.largeImageURL}>
@@ -20,10 +29,4 @@ export default function gallerys(arry) {
     )
     .join('');
   gallery.innerHTML = line;
-
-  new SimpleLightbox('.gallery a', {
-    captions: true,
-    captionsData: 'alt',
-    captionDelay: 250,
-  });
 }
