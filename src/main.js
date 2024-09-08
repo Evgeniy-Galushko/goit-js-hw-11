@@ -18,6 +18,9 @@ function searchText(event) {
   const input = event.target;
   const text = input.elements.text.value.trim();
   const textSearch = text.toLowerCase();
+  if (textSearch === '') {
+    return;
+  }
 
   loader.classList.toggle('js-non-display');
 
