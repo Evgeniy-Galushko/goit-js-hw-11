@@ -30,34 +30,3 @@ export default function gallerys(imgs) {
     .join('');
   gallery.innerHTML = line;
 }
-
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// import request from './js/pixabay-api';
-// import SimpleLightbox from 'simplelightbox';
-// import 'simplelightbox/dist/simple-lightbox.min.css';
-
-// const simpleLight = $('.gallery a').simpleLightbox();
-
-// const loader = document.querySelector('.loader');
-// const forms = document.querySelector('.search');
-// const gallery = document.querySelector('.gallery');
-
-// function searchText(event) {
-//   gallery.innerHTML = '';
-//   event.preventDefault();
-//   const input = event.target;
-//   const text = input.elements.text.value.trim();
-//   const textSearch = text.toLowerCase();
-
-//   loader.classList.toggle('js-non-display');
-
-//   request(textSearch);
-
-//   loader.classList.toggle('js-non-display');
-
-//   simpleLight.refresh();
-
-//   forms.reset();
-// }
-
-// forms.addEventListener('submit', searchText);

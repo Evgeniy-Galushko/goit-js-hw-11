@@ -11,7 +11,7 @@ export default function request(textSearch) {
 
   const url = `https://pixabay.com/api/?${searchParams}`;
 
-  fetch(`${url}`).then(response => {
+  return fetch(`${url}`).then(response => {
     if (!response.ok) {
       throw new Error(response.status);
     }
