@@ -1,16 +1,20 @@
-import gallerys from '../js/render-functions';
+export default function request(textSearch) {
+  const searchParams = new URLSearchParams({
+    key: '45780077-211740ab05b8c84b50ffae6ce',
+    q: `${textSearch}`,
+    image_type: 'photo',
+    orientation: 'horizontal',
+    safesearch: true,
+    per_page: 15,
+  });
+  console.log(searchParams.toString());
 
-export default function request(url) {
-  fetch(`${url}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      return response.json();
-    })
-    .then(images => {
-      const imgs = images.hits;
-      gallerys(imgs);
-    })
-    .catch(error => console.log(error));
+  const url = `https://pixabay.com/api/?${searchParams}`;
+
+  fetch(`${url}`).then(response => {
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return response.json();
+  });
 }
