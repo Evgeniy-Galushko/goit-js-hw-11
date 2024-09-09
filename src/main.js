@@ -24,15 +24,12 @@ function searchText(event) {
 
   loader.classList.toggle('js-non-display');
 
-  request(textSearch)
-    .then(images => {
-      const imgs = images.hits;
-      gallerys(imgs);
-      simpleBox.refresh();
-    })
-    .catch(error => console.log(error));
-
-  loader.classList.toggle('js-non-display');
+  request(textSearch).then(images => {
+    const imgs = images.hits;
+    gallerys(imgs);
+    loader.classList.toggle('js-non-display');
+    simpleBox.refresh();
+  });
 
   forms.reset();
 }
